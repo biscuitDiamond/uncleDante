@@ -86,7 +86,7 @@ export function Constructor(){
     return(
         <div className="flex flex-row justify-center m-4 items-center w-[1000px]">
             {/* w-[550px] */}
-            <div className="w-[70%] flex flex-row justify-center">
+            <div className="w-[60%] flex flex-row justify-center">
 {/*                 {   
                     leftView1 === "void" &&
                     <div className="h-[1px] w-[1px]">
@@ -108,7 +108,7 @@ export function Constructor(){
                 {
                     leftView1 === "initialPreview" &&  
                     <div className="self-center">
-                        <img src="img/body/pizza/meet_with_adjika.jpg"></img>
+                        <img src="img/body/pizza/bbq_sausages.avif"></img>
                     </div>
 /*                     ||
                     leftView2 === "initialPreview" &&  
@@ -139,7 +139,7 @@ export function Constructor(){
             overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded
             */}
             {/* w-[450px] */}
-            <div className="flex flex-col justify-items-start ml-2 overflow-y-scroll w-[30%] ml-4 scrollbar-track:!bg-slate-100">
+            <div className="flex flex-col justify-items-start ml-2 w-[40%] ml-4 scrollbar-track:!bg-slate-100">
 
                 <ul className="list:none flex flex-col">
                     <div className="mb-2 flex flex-row relative">
@@ -156,37 +156,39 @@ export function Constructor(){
                         </div>
                     </div>
                     {/* shadow-lg shadow-white/50 */}
-                    <li className="m-2 rounded-md p-4 shadow-[0px_0px_10px_1px_rgba(255,255,255,0.2)]">
+                    <li className="m-2 rounded-md p-4 shadow-[0px_0px_10px_1px_rgba(255,255,255,0.2)] min-w-min max-w-max min-h-min max-h-max">
                         <div className="flex flex-col items-center">
-                            <div className="flex flex-row" id="setItem" data-type="edit" 
-                            
-                            >
+                            <div className="flex flex-row w-full" id="setItem" data-type="edit">
                                 <div className="chel">
-                                    <img src="img/body/pizza/meet_with_adjika.jpg" className="rounded-md w-[68px] h-[68px]"></img>
+                                    <img src="img/body/pizza/bbq_sausages.avif" className="rounded-md min-w-[68px] min-h-[68px]"></img>
                                 </div>
                                 <div className="flex flex-col items-center w-full">
-                                    <div className="flex flex-col items-center w-full">
+                                    <div className="flex flex-col items-center w-[270px]">
                                         <h2>Пепперони фреш</h2>
-                                            <p>
-                                                25 см, традиционное тесто 25, 380 г
-                                            </p>
-                                            <p className="text-gray-400">
-                                                Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус
-                                            </p>
+                                            <div className="flex flex-row justify-start w-full">
+                                                <p className="text-xs">
+                                                    25 см, традиционное тесто 25, 380 г
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p className="text-gray-400 text-xs">
+                                                    Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус
+                                                </p>
+                                            </div>
                                     </div>
                                     <div className="flex flex-row justify-center mt-4">
-                                        <button className="mr-3 rounded-lg bg-red-400 px-2 py-1 editable pizza" id="pizza"/*  onClick={()=> setLeftView(prev => !prev)} */ onClick={leftChanger1}
+                                        <button className="mr-3 rounded-[20px] bg-cyan-200 text-cyan-600 font-semibold px-2 py-1 editable pizza" id="pizza"/*  onClick={()=> setLeftView(prev => !prev)} */ onClick={leftChanger1}
                                 >
                                             <span>
                                                 Заменить
                                             </span>
                                         </button>
-                                        <button className="mr-3 rounded-lg bg-green-600 px-2 py-1 editable ingredients" id="ingredients" onClick={()=>{
+                                        <button className="mr-3 px-2 py-1 text-cyan-600 font-semibold editable ingredients" id="ingredients" onClick={()=>{
                                             leftView1 === "ingredientsList" ? setLeftView1("initialPreview") : setLeftView1("ingredientsList")
                                             console.log("INGIIDENTS WORKS");
                                             
                                         }}>
-                                            <span>
+                                            <span className="">
                                                 Изменить состав
                                             </span>
                                         </button>
@@ -202,7 +204,7 @@ export function Constructor(){
                             
                             >
                                 <div className="chel">
-                                    <img src="img/body/pizza/meet_with_adjika.jpg" className="rounded-md w-[250px] h-[150px]"></img>
+                                    <img src="img/body/pizza/bbq_sausages.avif" className="rounded-md w-[250px] h-[150px]"></img>
                                 </div>
                                 <div className="flex flex-col items-center w-full">
                                     <h1>Название товара</h1>

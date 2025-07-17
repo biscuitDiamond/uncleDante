@@ -711,7 +711,7 @@ import { IProduct } from "../models"
         export const pizza: IProduct[] = [
             {
                 name: 'Beef stroganoff',
-                img: 'img/body/pizza/beef_stroganoff.jpg',
+                img: 'img/body/pizza/beef_stroganoff.avif',
                 imgT: '',
                 ingredients: [
                     'spiced beef',
@@ -771,7 +771,7 @@ import { IProduct } from "../models"
             },
             {
                 name: 'Meet with adjica',
-                img: 'img/body/pizza/meet_with_adjika.jpg',
+                img: 'img/body/pizza/meet_with_adjika.avif',
                 imgT: '',
                 ingredients: [
                     'bavarian sausages',
