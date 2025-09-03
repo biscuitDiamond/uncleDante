@@ -3,12 +3,13 @@ import { IProduct } from "../models";
 
 
 interface ProductProps {
-    product: IProduct
+    product: IProduct,
+    section: string
 }
 
 
 
-export function LiComponent(props: ProductProps, card: string){
+export function LiComponent(props: ProductProps, section: string){
     /* либо добавить эту ф-цию через прототипирование в объект Продукт */
     /* через хуки или функциональные компоненты ? */
     const ingredients = props.product.ingredients
@@ -44,7 +45,7 @@ export function LiComponent(props: ProductProps, card: string){
                 </h2>
                 {/* && card ? */}
                 
-                {card &&
+                {section === "card" &&
                 <div className="my-3">
                     <p>
                     <span>
@@ -67,6 +68,16 @@ export function LiComponent(props: ProductProps, card: string){
                 </div>
                 }
             </li>
+            {
+            section === "leftView" 
+            && 
+            <li className="box-border">
+                <img src={props.product.img} alt={props.product.name}></img>
+                <span>
+                    {props.product.name}
+                </span>
+            </li>
+            }
         </>
     )
 }

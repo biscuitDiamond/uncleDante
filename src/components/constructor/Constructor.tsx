@@ -86,6 +86,12 @@ export function Constructor(){
     return(
         <div className="flex flex-row justify-center m-4 items-center w-[1000px]">
             {/* w-[550px] */}
+            {/* 
+            сделать 3 итема стандартно с каким-то классом (селектед)
+            при нажатии на какой-то элемент, присуждать класс prev(tmp), убирать селектед, открывать список всех возможных айтемов
+            при выборе нужного айтема, убирать у старого элема класс prev, на текущий элем ставить селектед и закрывать лефтВью
+            
+            */}
             <div className="w-[60%] flex flex-row justify-center">
 {/*                 {   
                     leftView1 === "void" &&
