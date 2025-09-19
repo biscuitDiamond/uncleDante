@@ -1,4 +1,4 @@
-import { IProduct } from "../models"
+import { ComboItems, IComboItem, IProduct } from "../models"
 /* export const pizza = [
     {
         name: "Beef stroganoff",
@@ -710,8 +710,9 @@ import { IProduct } from "../models"
 
         export const pizza: IProduct[] = [
             {
+                id: 0,
                 name: 'Beef stroganoff',
-                img: 'img/body/pizza/beef_stroganoff.avif',
+                img: 'img/body/pizza/beef_stroganov.avif',
                 imgT: '',
                 ingredients: [
                     'spiced beef',
@@ -768,7 +769,7 @@ import { IProduct } from "../models"
                         }
                     },
                 }
-            },
+            }/* ,
             {
                 name: 'Meet with adjica',
                 img: 'img/body/pizza/meet_with_adjika.avif',
@@ -828,10 +829,11 @@ import { IProduct } from "../models"
                         }
                     },
                 }
-            },
+            } */,
             {
+                id: 1,
                 name: 'Shrimp with sweet chile',
-                img: 'img/body/pizza/shrimp_with_sweet_chile.jpg',
+                img: 'img/body/pizza/shrimp_with_sweet_chile.avif',
                 imgT: '',
                 ingredients: [
                     'shrips',
@@ -889,6 +891,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 2,
                 name: 'Pizza of halfs',
                 img: 'img/body/pizza/pizza_of_halfs.avif',
                 imgT: '',
@@ -943,6 +946,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 3,
                 name: 'Cheesy',
                 img: 'img/body/pizza/cheesy.avif',
                 imgT: '',
@@ -999,6 +1003,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 4,
                 name: 'Julienne pizza',
                 img: 'img/body/pizza/julienne.avif',
                 imgT: '',
@@ -1060,6 +1065,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 5,
                 name: 'Pesto',
                 img: 'img/body/pizza/pesto.avif',
                 imgT: 'img/body/pizza/burger_pizza_t.avif',
@@ -1119,6 +1125,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 6,
                 name: 'Carbonara',
                 img: 'img/body/pizza/carbonara.avif',
                 imgT: 'img/body/pizza/burger_pizza_t.avif',
@@ -1180,6 +1187,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 7,
                 name: 'Meety',
                 img: 'img/body/pizza/meety.avif',
                 imgT: 'img/body/pizza/burger_pizza_t.avif',
@@ -1239,6 +1247,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 8,
                 name: 'Arriva',
                 img: 'img/body/pizza/arriva.avif',
                 imgT: 'img/body/pizza/burger_pizza_t.avif',
@@ -1301,6 +1310,7 @@ import { IProduct } from "../models"
                 }
             },
             {
+                id: 9,
                 name: 'Burger-pizza',
                 img: 'img/body/pizza/burger_pizza.avif',
                 imgT: 'img/body/pizza/burger_pizza_t.avif',
@@ -1362,4 +1372,126 @@ import { IProduct } from "../models"
                 }
             }
     
+        ]
+
+        /*  нужно будет делать отдельный интерфейс под комбо */
+        export const combos: IProduct[] = [
+            {
+                id: 0,
+                name: '2 drinks',
+                img: 'img/body/combo/2_drinks.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 1,
+                name: '2 desserts',
+                img: 'img/body/combo/2_desserts.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 2,
+                name: '2 coffee: Latte or Cappuccino',
+                img: 'img/body/combo/2_coffee_latte_cappuccino.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 3,
+                name: '2 pizzas',
+                img: 'img/body/combo/2_pizzas.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 4,
+                name: '2 pizzas and drink',
+                img: 'img/body/combo/2_pizzas_and_drink.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 5,
+                name: '2 sauces',
+                img: 'img/body/combo/2_sauces.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 6,
+                name: '3 pizzas',
+                img: 'img/body/combo/3_pizzas.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 7,
+                name: '3 pizzas 25sm',
+                img: 'img/body/combo/3_pizzas.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 8,
+                name: '4 snacks',
+                img: 'img/body/combo/4in1.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            },
+            {
+                id: 9,
+                name: 'breakfast for couple',
+                img: 'img/body/combo/combo_breakfast_for_duo.avif',
+                imgT: '',
+                size: {
+                    small: {
+                        size: '0,5 l'
+                    }
+                }
+            }
+        ]
+
+        export const testCombo: IComboItem[] = [
+            {
+                itemId: 0,
+                itemName: "2 drinks",
+                product: ComboItems.Pizza
+            }
         ]

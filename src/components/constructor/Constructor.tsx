@@ -84,7 +84,7 @@ export function Constructor(){
     */
 
     return(
-        <div className="flex flex-row justify-center m-4 items-center w-[1000px]">
+        <div className="flex flex-row justify-center m-4 items-center w-[1000px] h-[650px]">
             {/* w-[550px] */}
             {/* 
             сделать 3 итема стандартно с каким-то классом (селектед)

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { IProduct } from "../models";
+import { Constructor } from "./constructor/Constructor";
 
 
 interface ProductProps {
@@ -9,13 +10,13 @@ interface ProductProps {
 
 
 
-export function LiComponent(props: ProductProps, section: string){
+export function LiComponent(props: ProductProps, section: string, eventHandlers: void){
     /* либо добавить эту ф-цию через прототипирование в объект Продукт */
     /* через хуки или функциональные компоненты ? */
     const ingredients = props.product.ingredients
     let ingIdx = 0
     const ingedietrsPrint = (s:string) => {
-        if(ingIdx === ingredients.length - 1){
+        if(ingredients && ingIdx === ingredients.length - 1){
             ingIdx = 0
             return `${s}`
         } else {
@@ -33,18 +34,29 @@ export function LiComponent(props: ProductProps, section: string){
         return `${ing}, `
         }
     } */
+
+/*     const [selectedItemId, setSelect] = useState(-1);
+
+    function toSelect(id : number){
+        setSelect(id);
+    } */
+
+
     return(
         <>
             <li className="box-border flex flex-col justify-center items-center p-[5px] m-[2px] max-w-[400px]">
-                <img src={props.product.img} alt={props.product.name}>
-                
-                </img>
-                <h2 className="mt-3">
-                    {props.product.name}
-                    {/* <span>{props.product.name}</span> */}
-                </h2>
+                <div className="flex flex-col justify-center items-center h-[197px] w-[156px] p-2" 
+                >
+                    <img src={props.product.img} alt={props.product.name} className="w-[150px] h-[150px] hover:p-1">
+                    
+                    </img>
+                    <h2 className="mt-3 px-<5>">
+                        {props.product.name}
+                        {/* <span>{props.product.name}</span> */}
+                    </h2>
+                </div>
                 {/* && card ? */}
-                
+
                 {section === "card" &&
                 <div className="my-3">
                     <p>
@@ -52,7 +64,8 @@ export function LiComponent(props: ProductProps, section: string){
                         {/* {props.product.ingredients} */}
                         {/* https://habr.com/ru/articles/330172/ */}
                         {/* {props.product.ingredients.map(ing => `${ing}, `)} */}
-                        {props.product.ingredients.map(ingedietrsPrint)}
+                        {props.product.ingredients &&
+                        props.product.ingredients.map(ingedietrsPrint)}
                     </span>
                     </p>
                     <div className="flex flex-row justify-between mt-3">
@@ -76,7 +89,21 @@ export function LiComponent(props: ProductProps, section: string){
                 <span>
                     {props.product.name}
                 </span>
+                dfdf
             </li>
+            }
+            {
+                section === "itemsList"
+                &&
+                                <div className="flex flex-col justify-center items-center h-[197px] w-[156px] p-2" data-selected="false">
+                    <img src={props.product.img} alt={props.product.name} className="w-[150px] h-[150px] hover:p-1">
+                    
+                    </img>
+                    <h2 className="mt-3 px-<5>">
+                        {props.product.name}
+                        {/* <span>{props.product.name}</span> */}
+                    </h2>
+                </div>
             }
         </>
     )
