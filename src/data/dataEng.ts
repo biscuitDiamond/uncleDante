@@ -1,4 +1,5 @@
-import { ComboItems, IComboItem, IProduct } from "../models"
+import { calculateNewValue } from "@testing-library/user-event/dist/utils"
+import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
 /* export const pizza = [
     {
         name: "Beef stroganoff",
@@ -707,6 +708,28 @@ import { ComboItems, IComboItem, IProduct } from "../models"
         }
 
     ] */
+        /* 4kkal, 9kkal, 4kkal */
+/*         function calculateEnergy(p : number, f : number, c : number, w : number) : number{
+            let ans = (p * 4 + f * 9 + c * 4) * w
+            return ans
+        } */
+        function calculateEnergy(item: Object, p : number, f : number, c : number, w : number) : number{
+            let ans = (p * 4 + f * 9 + c * 4) * w
+            return ans
+        }
+
+        export const ingredients : Iingredient[] = [
+            {
+                ing_id: 0,
+                name: "dough",
+                protein: 5.5,
+                fat: 6.5,
+                carbohydrates: 43.4,
+                weight: 100,
+                energy: calculateEnergy(this.protein, this.fat, this.carbohydrates, this.weight)
+                /* СДЕЛАТЬ СТАТИЧНУЮ Ф-ЦИЮ (УЖЕ СДЕЛАЛ ВЫШЕ), ДАЛЕЕ ПРИ СОЗДАНИИ ЭЛЕМЕНТА СРАЗУ ЕЕ ВЫЗЫВАТЬ, ЧТОБЫ БЫЛ ПОДСЧЕТ/ЗАПОЛНЕНИЕ ПОЛЕЙ СРАЗУ */
+            }
+        ]
 
         export const pizza: IProduct[] = [
             {

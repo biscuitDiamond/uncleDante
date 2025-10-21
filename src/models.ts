@@ -1,14 +1,54 @@
 /* типы данных, которые мы юзаем в проекте */
 
 import { Interface } from "readline"
+import { ingredients } from "./data/dataEng"
+
+export interface Iingredient {
+    ing_id: number,
+    name: string,
+    protein: number,
+    fat: number,
+    carbohydrates: number,
+    weight: number,
+    energy: number,
+/*     calc: ()=>{} */
+/*     toCalcEnergy() => {
+        return 1;
+    } */
+/*     toCalc: ()=>{
+    } */
+}
 
 /* до редактирования под "комбо" обязательные были ингридиенты, размер, смол, медиум, биг, thick */
 export interface IProduct {
     id: number,
     name: string,
-    img: string,
-    imgT?: string,
-    ingredients?: Array<string>,
+    /* s, m, l */
+    img: {
+        s?: string,
+        m: string,
+        l?: string
+    },
+    ingredients?: Array<string>
+}
+/* общий интерфейс под комбо, в зависимости от того, что является элементом комбо, реализовать элементами другие интерфейсы.
+итем комбо - перечисление ? */
+export const enum ComboItems {
+    Pizza,
+    Snacks,
+    Cocktails,
+    Coffee,
+    Drinks,
+    Deserts,
+    Sauces
+}
+
+export interface IPizza implements IProduct {
+    imgThick?: {
+        s?: string,
+        m: string,
+        l?: string
+    },
     size?: {
         small?: {
             size: string,
@@ -63,22 +103,25 @@ export interface IProduct {
         }
     }
 }
-/* общий интерфейс под комбо, в зависимости от того, что является элементом комбо, реализовать элементами другие интерфейсы.
-итем комбо - перечисление ? */
-export const enum ComboItems {
-    Pizza,
-    Snacks,
-    Cocktails,
-    Coffee,
-    Drinks,
-    Deserts,
-    Sauces
-}
 
-export interface IPizza implements IProduct {
-    
-}
+interface ISnack implements IProduct {
+    size: {
+        /* мб энергоценность внести в IProduct, а зависимость от размера уже вынести, как какой-то множитель, и на основании этого высчитывать ее в конечном продукте ? т.к. сейчас идет дубляж кода */
+        small?: {
+            energy: number,
+            protein: number,
+            fat: number,
+            carbohydrates: number,
+            weight: number    
+        },
+        medium?:{
 
+        },
+        big?:{
+            
+        }
+    }
+}
 export interface IComboItem {
     itemId: number,
     itemName: string,
