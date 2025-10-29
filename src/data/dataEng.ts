@@ -1,5 +1,5 @@
 import { calculateNewValue } from "@testing-library/user-event/dist/utils"
-import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
+import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from "../models"
 /* export const pizza = [
     {
         name: "Beef stroganoff",
@@ -726,17 +726,71 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                 fat: 6.5,
                 carbohydrates: 43.4,
                 weight: 100,
-                energy: calculateEnergy(this.protein, this.fat, this.carbohydrates, this.weight)
+                /* energy: calculateEnergy(this.protein, this.fat, this.carbohydrates, this.weight), */
+                energy: 5.5 * 4 + 6.5 * 9 + 43.4 * 4,
+                cost: 20
                 /* СДЕЛАТЬ СТАТИЧНУЮ Ф-ЦИЮ (УЖЕ СДЕЛАЛ ВЫШЕ), ДАЛЕЕ ПРИ СОЗДАНИИ ЭЛЕМЕНТА СРАЗУ ЕЕ ВЫЗЫВАТЬ, ЧТОБЫ БЫЛ ПОДСЧЕТ/ЗАПОЛНЕНИЕ ПОЛЕЙ СРАЗУ */
-            }
+            },
+            {
+                ing_id: 1,
+                name: "ham",
+                protein: 12,
+                fat: 8,
+                carbohydrates: 1,
+                weight: 100,
+                energy: 12 * 4 + 8 * 9 + 1 * 4,
+                cost: 20
+            },
+            {
+                ing_id: 2,
+                name: "beef",
+                protein: 26,
+                fat: 12,
+                carbohydrates: 1,
+                weight: 100,
+                energy: 26 * 4 + 12 * 9 + 1 * 4,
+                cost: 139
+            },
+            {
+                ing_id: 3,
+                name: "mozzarella",
+                protein: 28,
+                fat: 26,
+                carbohydrates: 5.6,
+                weight: 100,
+                energy: 28 * 4 + 26 * 9 + 5.6 * 4,
+                cost: 115
+            },
+            {
+                ing_id: 4,
+                name: "cheddar",
+                protein: 25.9,
+                fat: 33.3,
+                carbohydrates: 3,
+                weight: 100,
+                energy: 25.9 * 4 + 33.3 * 9 + 3 * 4,
+                cost: 99
+            },
+            {
+                ing_id: 5,
+                name: "jalapeno",
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 79
+            },
         ]
 
-        export const pizza: IProduct[] = [
-            {
-                id: 0,
-                name: 'Beef stroganoff',
-                img: 'img/body/pizza/beef_stroganov.avif',
-                imgT: '',
+        export const pizza: IPizza[] = [
+/*             {
+                prodId: 0,
+                prodName: 'Beef stroganoff',
+                img: {
+                    s:'',
+                    m: 'img/body/pizza/beef_stroganov.avif'
+                },
                 ingredients: [
                     'spiced beef',
                     'champignons',
@@ -792,7 +846,70 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                         }
                     },
                 }
-            }/* ,
+            } */
+            {
+                prodId: 0,
+                prodName: 'Beef stroganoff',
+                img: {
+                    s:'',
+                    m: 'img/body/pizza/beef_stroganov.avif'
+                },
+                ingredients: [
+                    ingredients[0],
+                    ingredients[1],
+                    ingredients[3]
+                ],
+                size: {
+                    small: {
+                        size: '25sm',
+                        thiсk: {
+                            energy: 249.7,
+                            protein: ingredients[0].protein * 2
+                            + ingredients[1].protein * 1.4
+                             + ingredients[2].protein * 2.7,
+                            fat: 9.3,
+                            carbohydrates: 30.1,
+                            weight: 410
+                        }
+                    },
+                    medium: {
+                        size: '30sm',
+                        thin: {
+                            energy: 295.8,
+                            protein: 12.2,
+                            fat: 12.8,
+                            carbohydrates: 30.9,
+                            weight: 420
+                        },
+                        thiсk: {
+                            energy: 267.2,
+                            protein: 10.2,
+                            fat: 10.1,
+                            carbohydrates: 32,
+                            weight: 570
+                        }
+                    },
+                    big: {
+                        size: '35sm',
+                        thin: {
+                            energy: 255.9,
+                            protein: 10.2,
+                            fat: 10.8,
+                            carbohydrates: 27.8,
+                            weight: 680
+                        },
+                        thiсk: {
+                            energy: 264.1,
+                            protein: 10,
+                            fat: 10,
+                            carbohydrates: 31.7,
+                            weight: 770
+                        }
+                    },
+                }
+            }
+           
+                /* ,
             {
                 name: 'Meet with adjica',
                 img: 'img/body/pizza/meet_with_adjika.avif',
@@ -854,17 +971,22 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                 }
             } */,
             {
-                id: 1,
-                name: 'Shrimp with sweet chile',
-                img: 'img/body/pizza/shrimp_with_sweet_chile.avif',
-                imgT: '',
+                prodId: 1,
+                prodName: 'Shrimp with sweet chile',
+                img:{
+                    s:'',
+                    m: 'img/body/pizza/shrimp_with_sweet_chile.avif'
+                },
                 ingredients: [
-                    'shrips',
+/*                     'shrips',
                     'pineapples',
                     'sweet chile ​​sauce',
                     'sweet pepper',
                     'mozzarella',
-                    'Alfredo\'s signature sauce'
+                    'Alfredo\'s signature sauce' */
+                    ingredients[0],
+                    ingredients[2],
+                    ingredients[3]
                 ],
                 size: {
                     small: {
@@ -912,7 +1034,7 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                         }
                     },
                 }
-            },
+            }/* ,
             {
                 id: 2,
                 name: 'Pizza of halfs',
@@ -1393,56 +1515,45 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                         }
                     }
                 }
-            }
+            } */
     
         ]
 
         /*  нужно будет делать отдельный интерфейс под комбо */
-        export const combos: IProduct[] = [
+        export const combos: ICombo[] = [
             {
-                id: 0,
-                name: '2 drinks',
-                img: 'img/body/combo/2_drinks.avif',
-                imgT: '',
-                size: {
-                    small: {
-                        size: '0,5 l'
-                    }
-                }
+                comboId: 0,
+                comboName: '2 drinks',
+                comboImg: 'img/body/combo/2_drinks.avif',
+                comboElements: [
+
+                ]
             },
             {
-                id: 1,
-                name: '2 desserts',
-                img: 'img/body/combo/2_desserts.avif',
-                imgT: '',
-                size: {
-                    small: {
-                        size: '0,5 l'
-                    }
-                }
+                comboId: 1,
+                comboName: '2 desserts',
+                comboImg: 'img/body/combo/2_desserts.avif',
+                comboElements: [
+
+                ]
             },
             {
-                id: 2,
-                name: '2 coffee: Latte or Cappuccino',
-                img: 'img/body/combo/2_coffee_latte_cappuccino.avif',
-                imgT: '',
-                size: {
-                    small: {
-                        size: '0,5 l'
-                    }
-                }
+                comboId: 2,
+                comboName: '2 coffee: Latte or Cappuccino',
+                comboImg: 'img/body/combo/2_coffee_latte_cappuccino.avif',
+                comboElements: [
+
+                ]
             },
             {
-                id: 3,
-                name: '2 pizzas',
-                img: 'img/body/combo/2_pizzas.avif',
-                imgT: '',
-                size: {
-                    small: {
-                        size: '0,5 l'
-                    }
-                }
-            },
+                comboId: 3,
+                comboName: '2 pizzas',
+                comboImg: 'img/body/combo/2_pizzas.avif',
+                comboElements: [
+                    pizza[0],
+                    pizza[1]
+                ]
+            }/* ,
             {
                 id: 4,
                 name: '2 pizzas and drink',
@@ -1508,13 +1619,13 @@ import { ComboItems, IComboItem, Iingredient, IProduct } from "../models"
                         size: '0,5 l'
                     }
                 }
-            }
+            } */
         ]
 
         export const testCombo: IComboItem[] = [
             {
                 itemId: 0,
                 itemName: "2 drinks",
-                product: ComboItems.Pizza
+                itemType: ComboItems.Pizza
             }
         ]

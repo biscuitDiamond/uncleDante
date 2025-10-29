@@ -11,6 +11,7 @@ export interface Iingredient {
     carbohydrates: number,
     weight: number,
     energy: number,
+    cost: number
 /*     calc: ()=>{} */
 /*     toCalcEnergy() => {
         return 1;
@@ -21,15 +22,15 @@ export interface Iingredient {
 
 /* до редактирования под "комбо" обязательные были ингридиенты, размер, смол, медиум, биг, thick */
 export interface IProduct {
-    id: number,
-    name: string,
+    prodId: number,
+    prodName: string,
     /* s, m, l */
     img: {
-        s?: string,
-        m: string,
+        s: string,
+        m?: string,
         l?: string
     },
-    ingredients?: Array<string>
+    ingredients?: Array<Object>
 }
 /* общий интерфейс под комбо, в зависимости от того, что является элементом комбо, реализовать элементами другие интерфейсы.
 итем комбо - перечисление ? */
@@ -43,13 +44,13 @@ export const enum ComboItems {
     Sauces
 }
 
-export interface IPizza implements IProduct {
+export interface IPizza extends IProduct {
     imgThick?: {
-        s?: string,
-        m: string,
+        s: string,
+        m?: string,
         l?: string
     },
-    size?: {
+    size: {
         small?: {
             size: string,
             thin?: {
@@ -104,7 +105,7 @@ export interface IPizza implements IProduct {
     }
 }
 
-interface ISnack implements IProduct {
+interface ISnack extends IProduct {
     size: {
         /* мб энергоценность внести в IProduct, а зависимость от размера уже вынести, как какой-то множитель, и на основании этого высчитывать ее в конечном продукте ? т.к. сейчас идет дубляж кода */
         small?: {
@@ -139,8 +140,16 @@ export interface IComboItem {
 /* product: Array<Interface> */
     /* product: ComboItems.Pizza */
     /* product: Array<Enumerator<ComboItems>>[] */
-    product: ComboItems,
+    itemType: ComboItems,
+    /* если мой элемент == пицца, то будет поле  */
     pizza?: IPizza,
-    snack?:
+    snack?: ISnack
+}
+
+export interface ICombo {
+    comboId: number,
+    comboName: string,
+    comboImg: string,
+    comboElements: Array<Object>
 }
 
