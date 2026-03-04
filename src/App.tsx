@@ -4,7 +4,10 @@ import { Route } from 'react-router-dom';
 import { Header } from './components/Header.tsx';
 import { Body } from './components/Body.tsx';
 
-
+export function calculateEnergy(item: Object, p : number, f : number, c : number, w : number) : number{
+            let ans = (p * 4 + f * 9 + c * 4) * w
+            return ans
+        }
 
 function App() {
 /*   const [themeMode, setThemeMode] = useState('dark-theme');

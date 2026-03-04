@@ -39,15 +39,15 @@ export function ItemsList(){
                         ></LiComponent>)} */}
                 {pizza.map(product=>
                     <li
-                        key={product.id}
-                        data-selected={selectedItemId === product.id}
+                        key={product.prodId}
+                        data-selected={selectedItemId === product.prodId}
                         /* onClick={toSelect} */
                         onClick={()=>{
                             console.log(`prev value: ${selectedItemId}`);
-                            setSelect(product.id)
+                            setSelect(product.prodId)
                             console.log(`afterClick value: ${selectedItemId}`);
                         }}
-                        className={`${selectedItemId === product.id ? "border rounded-xl border-white border-solid " : ""}`
+                        className={`${selectedItemId === product.prodId ? "border rounded-xl border-white border-solid " : ""}`
                     + ``
                     }
 /*                         style={{
@@ -56,11 +56,11 @@ export function ItemsList(){
                         }} */
                     >
                         <div className="flex flex-col justify-center items-center h-[197px] w-[156px] p-2" data-selected="false">
-                        <img src={product.img} alt={product.name} className="w-[150px] h-[150px] hover:p-1">
+                        <img src={product.img.s} alt={product.prodName} className="w-[150px] h-[150px] hover:p-1">
                         
                         </img>
                         <h2 className="mt-3 px-<5>">
-                            {product.name}
+                            {product.prodName}
                             {/* <span>{props.product.name}</span> */}
                         </h2>
                         </div>

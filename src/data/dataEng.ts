@@ -1,5 +1,5 @@
 import { calculateNewValue } from "@testing-library/user-event/dist/utils"
-import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from "../models"
+import { calc, ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct, /* ISnack */ } from "../models.ts"
 /* export const pizza = [
     {
         name: "Beef stroganoff",
@@ -14,7 +14,9 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
         ]
     }
 ] */
-
+function calc1(p : number, f:number, c:number){
+    return p * 4 + f * 9 + c * 15;
+}
     /* pizza: IProduct[] потом мб сменится интерфейс */
 /* в интерфейсе сделать необязательным параметр thin, добавить картинки на thin*/
         /* сделать сразу через конструктор */
@@ -713,37 +715,37 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
             let ans = (p * 4 + f * 9 + c * 4) * w
             return ans
         } */
-        function calculateEnergy(item: Object, p : number, f : number, c : number, w : number) : number{
-            let ans = (p * 4 + f * 9 + c * 4) * w
-            return ans
-        }
+
 
         export const ingredients : Iingredient[] = [
             {
                 ing_id: 0,
                 name: "dough",
+                img: '',
                 protein: 5.5,
                 fat: 6.5,
                 carbohydrates: 43.4,
                 weight: 100,
                 /* energy: calculateEnergy(this.protein, this.fat, this.carbohydrates, this.weight), */
-                energy: 5.5 * 4 + 6.5 * 9 + 43.4 * 4,
+                energy: 0 ,
                 cost: 20
                 /* СДЕЛАТЬ СТАТИЧНУЮ Ф-ЦИЮ (УЖЕ СДЕЛАЛ ВЫШЕ), ДАЛЕЕ ПРИ СОЗДАНИИ ЭЛЕМЕНТА СРАЗУ ЕЕ ВЫЗЫВАТЬ, ЧТОБЫ БЫЛ ПОДСЧЕТ/ЗАПОЛНЕНИЕ ПОЛЕЙ СРАЗУ */
             },
             {
                 ing_id: 1,
                 name: "ham",
+                img: 'img/body/ingredients/ham.png',
                 protein: 12,
                 fat: 8,
                 carbohydrates: 1,
                 weight: 100,
-                energy: 12 * 4 + 8 * 9 + 1 * 4,
+                energy: /* calc() */ 12 * 4 + 8 * 9 + 1 * 4,
                 cost: 20
             },
             {
                 ing_id: 2,
-                name: "beef",
+                name: "spicy beef",
+                img: 'img/body/ingredients/spicy_beef.png',
                 protein: 26,
                 fat: 12,
                 carbohydrates: 1,
@@ -754,6 +756,7 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
             {
                 ing_id: 3,
                 name: "mozzarella",
+                img: 'img/body/ingredients/mozzarella.png',
                 protein: 28,
                 fat: 26,
                 carbohydrates: 5.6,
@@ -764,6 +767,7 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
             {
                 ing_id: 4,
                 name: "cheddar",
+                img: 'img/body/ingredients/cheddar_and_parmesan.png',
                 protein: 25.9,
                 fat: 33.3,
                 carbohydrates: 3,
@@ -774,6 +778,7 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
             {
                 ing_id: 5,
                 name: "jalapeno",
+                img: 'img/body/ingredients/jalapeno.png',
                 protein: 0.91,
                 fat: 0.37,
                 carbohydrates: 6.5,
@@ -781,8 +786,186 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
                 energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
                 cost: 79
             },
+            /* обновлять инфу */
+            {
+                ing_id: 6,
+                name: "blue cheese",
+                img: 'img/body/ingredients/blue_cheese.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 119
+            },
+            {
+                ing_id: 7,
+                name: "chicken",
+                img: 'img/body/ingredients/chicken.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 89
+            },
+            {
+                ing_id: 8,
+                name: "champignons",
+                img: 'img/body/ingredients/champignons.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 9,
+                name: "bacon",
+                img: 'img/body/ingredients/bacon.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 89
+            },
+            {
+                ing_id: 10,
+                name: "spicy chorizo",
+                img: 'img/body/ingredients/spicy_chorizo.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 89
+            },
+            {
+                ing_id: 11,
+                name: "tomatoes",
+                img: 'img/body/ingredients/tomatoes.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 12,
+                name: "red onion",
+                img: 'img/body/ingredients/red_onion.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 13,
+                name: "pickled cucumbers",
+                img: 'img/body/ingredients/pickled_cucumbers.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 14,
+                name: "italian herbs",
+                img: 'img/body/ingredients/italian_herbs.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 49
+            },
+            {
+                ing_id: 15,
+                name: "juicy pineapple",
+                img: 'img/body/ingredients/juicy_pineapple.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 16,
+                name: "sweet pepper",
+                img: 'img/body/ingredients/sweet_pepper.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 69
+            },
+            {
+                ing_id: 17,
+                name: "feta cubics",
+                img: 'img/body/ingredients/feta_cubics.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 89
+            },
+            {
+                ing_id: 18,
+                name: "bavarian sausages",
+                img: 'img/body/ingredients/bavarian_sausages.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 129
+            },
+            {
+                ing_id: 19,
+                name: "shrimps",
+                img: 'img/body/ingredients/shrimps.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 229
+            },
+            {
+                ing_id: 20,
+                name: "pepperoni",
+                img: 'img/body/ingredients/pepperoni.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 109
+            },
+            {
+                ing_id: 21,
+                name: "cheesy border",
+                img: 'img/body/ingredients/cheesy_board.png',
+                protein: 0.91,
+                fat: 0.37,
+                carbohydrates: 6.5,
+                weight: 100,
+                energy: 0.91 * 4 + 0.37 * 9 + 6.5 * 4,
+                cost: 219
+            }
         ]
 
+        /* ingredients[0].energy = calc(ingredients[0]) */
         export const pizza: IPizza[] = [
 /*             {
                 prodId: 0,
@@ -907,7 +1090,7 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
                         }
                     },
                 }
-            }
+            },
            
                 /* ,
             {
@@ -969,7 +1152,7 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
                         }
                     },
                 }
-            } */,
+            } ,*/
             {
                 prodId: 1,
                 prodName: 'Shrimp with sweet chile',
@@ -978,12 +1161,6 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
                     m: 'img/body/pizza/shrimp_with_sweet_chile.avif'
                 },
                 ingredients: [
-/*                     'shrips',
-                    'pineapples',
-                    'sweet chile ​​sauce',
-                    'sweet pepper',
-                    'mozzarella',
-                    'Alfredo\'s signature sauce' */
                     ingredients[0],
                     ingredients[2],
                     ingredients[3]
@@ -1034,8 +1211,8 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
                         }
                     },
                 }
-            }/* ,
-            {
+            } ,
+            /* {
                 id: 2,
                 name: 'Pizza of halfs',
                 img: 'img/body/pizza/pizza_of_halfs.avif',
@@ -1519,36 +1696,67 @@ import { ComboItems, ICombo, IComboItem, Iingredient, IPizza, IProduct } from ".
     
         ]
 
+/*         export const snacks: ISnack[] = [
+
+        ] */
+
         /*  нужно будет делать отдельный интерфейс под комбо */
         export const combos: ICombo[] = [
             {
                 comboId: 0,
                 comboName: '2 drinks',
                 comboImg: 'img/body/combo/2_drinks.avif',
+                comboDescription: "One for HP, one for Devil's Trigger",
                 comboElements: [
-
+                    pizza[0],
+                    pizza[1]
                 ]
             },
             {
                 comboId: 1,
                 comboName: '2 desserts',
                 comboImg: 'img/body/combo/2_desserts.avif',
+                comboDescription: "The Sweet couple. Two muffins or make up your own duet",
                 comboElements: [
-
+                    pizza[0],
+                    pizza[1]
                 ]
             },
             {
                 comboId: 2,
                 comboName: '2 coffee: Latte or Cappuccino',
                 comboImg: 'img/body/combo/2_coffee_latte_cappuccino.avif',
+                comboDescription: "One you. Two cups",
                 comboElements: [
-
+                    pizza[0],
+                    pizza[1]
                 ]
             },
             {
                 comboId: 3,
                 comboName: '2 pizzas',
                 comboImg: 'img/body/combo/2_pizzas.avif',
+                comboDescription: "For couple or one   H U N G R I E S T",
+                comboElements: [
+                    pizza[0],
+                    pizza[1]
+                ]
+            },
+            {
+                comboId: 1,
+                comboName: '2 desserts',
+                comboImg: 'img/body/combo/2_desserts.avif',
+                comboDescription: "One for HP, one for Devil's Trigger",
+                comboElements: [
+                    pizza[0],
+                    pizza[1]
+                ]
+            },
+            {
+                comboId: 2,
+                comboName: '2 coffee: Latte or Cappuccino',
+                comboImg: 'img/body/combo/2_coffee_latte_cappuccino.avif',
+                comboDescription: "One for HP, one for Devil's Trigger",
                 comboElements: [
                     pizza[0],
                     pizza[1]

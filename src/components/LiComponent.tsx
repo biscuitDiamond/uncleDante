@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IProduct } from "../models";
 import { Constructor } from "./constructor/Constructor";
+import { IngredientsList } from "./constructor/IngredientsList";
 
 
 interface ProductProps {
@@ -47,11 +48,11 @@ export function LiComponent(props: ProductProps, section: string, eventHandlers:
             <li className="box-border flex flex-col justify-center items-center p-[5px] m-[2px] max-w-[400px]">
                 <div className="flex flex-col justify-center items-center h-[197px] w-[156px] p-2" 
                 >
-                    <img src={props.product.img} alt={props.product.name} className="w-[150px] h-[150px] hover:p-1">
+                    <img src={props.product.img.s} alt={props.product.prodName} className="w-[150px] h-[150px] hover:p-1">
                     
                     </img>
                     <h2 className="mt-3 px-<5>">
-                        {props.product.name}
+                        {props.product.prodName}
                         {/* <span>{props.product.name}</span> */}
                     </h2>
                 </div>
@@ -64,8 +65,9 @@ export function LiComponent(props: ProductProps, section: string, eventHandlers:
                         {/* {props.product.ingredients} */}
                         {/* https://habr.com/ru/articles/330172/ */}
                         {/* {props.product.ingredients.map(ing => `${ing}, `)} */}
-                        {props.product.ingredients &&
-                        props.product.ingredients.map(ingedietrsPrint)}
+                        {/* что ниже ? */}
+                        {/* {props.product.ingredients &&
+                        props.product.ingredients.map(ingedietrsPrint)} */}
                     </span>
                     </p>
                     <div className="flex flex-row justify-between mt-3">
@@ -82,25 +84,28 @@ export function LiComponent(props: ProductProps, section: string, eventHandlers:
                 }
             </li>
             {
-            section === "leftView" 
+/*             section === "leftView" 
             && 
             <li className="box-border">
-                <img src={props.product.img} alt={props.product.name}></img>
+                <img src={props.product.img.s} alt={props.product.prodName}></img>
                 <span>
-                    {props.product.name}
+                    {props.product.prodName}
                 </span>
                 dfdf
-            </li>
+            </li> */
+            section === "leftView" && {
+                
+            }
             }
             {
                 section === "itemsList"
                 &&
                                 <div className="flex flex-col justify-center items-center h-[197px] w-[156px] p-2" data-selected="false">
-                    <img src={props.product.img} alt={props.product.name} className="w-[150px] h-[150px] hover:p-1">
+                    <img src={props.product.img.s} alt={props.product.prodName} className="w-[150px] h-[150px] hover:p-1">
                     
                     </img>
                     <h2 className="mt-3 px-<5>">
-                        {props.product.name}
+                        {props.product.prodName}
                         {/* <span>{props.product.name}</span> */}
                     </h2>
                 </div>

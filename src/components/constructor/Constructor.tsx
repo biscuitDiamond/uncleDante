@@ -2,11 +2,27 @@ import React, { useState, useEffect } from "react";
 import {ItemsList} from './ItemsList.tsx'
 import {IngredientsList} from './IngredientsList.tsx'
 import { log } from "console";
+import { calculateEnergy } from "../../App.tsx";
 export function Constructor(){
 
     const [leftView1, setLeftView1] = useState("initialPreview")
     const [leftView2, setLeftView2] = useState("void")
     const [leftView3, setLeftView3] = useState("void")
+
+    const [dataType, setDataType] = useState("edit");
+    function comboElemCheck(){
+        if(dataType === "edit"){
+            setDataType("selected") 
+        } else if(dataType === "selected"){
+            setDataType("edit")
+        }
+        /* dataType === "edit" ? setDataType("selected") : setDataType("edit"); */
+    }
+
+    const ans : Object[] = new Array(3);
+
+    
+
 /*     function leftChanger(){
         leftView === "initialPreview" ? setLeftView("itemsList") : setLeftView("initialPreview")
     } */
@@ -115,6 +131,7 @@ export function Constructor(){
                     leftView1 === "initialPreview" &&  
                     <div className="self-center">
                         <img src="img/body/pizza/bbq_sausages.avif"></img>
+                        <h2> начальный вид комбо </h2>
                     </div>
 /*                     ||
                     leftView2 === "initialPreview" &&  
@@ -158,13 +175,13 @@ export function Constructor(){
                             </p>
                         </div>
                         <div className="absolute right-2">
-                            ккал
+                            
                         </div>
                     </div>
                     {/* shadow-lg shadow-white/50 */}
                     <li className="m-2 rounded-md p-4 shadow-[0px_0px_10px_1px_rgba(255,255,255,0.2)] min-w-min max-w-max min-h-min max-h-max">
-                        <div className="flex flex-col items-center">
-                            <div className="flex flex-row w-full" id="setItem" data-type="edit">
+                        <div className="flex flex-col items-center" onClick={comboElemCheck}>
+                            <div className="flex flex-row w-full" id="setItem" data-type={dataType}>
                                 <div className="chel">
                                     <img src="img/body/pizza/bbq_sausages.avif" className="rounded-md min-w-[68px] min-h-[68px]"></img>
                                 </div>
@@ -261,7 +278,7 @@ export function Constructor(){
 
 
                 </ul>
-                <div className="flex flex-row h-[150px] justify-between">
+                <div className="flex flex-row h-[150px] justify-between">z
                     <div className="ml-[30px]">
                         <span>
                             999 рублей
